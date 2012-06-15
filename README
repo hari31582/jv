@@ -1,0 +1,43 @@
+== Restaurant problem
+
+ This solution will help to find the most economical hotel for given order
+ 
+
+ 
+== Environment  Needed
+
+  1. Ruby 1.8.7
+  2. rspec 2.9.0 
+
+== How to run program
+
+  1. Go to root of application
+
+    e.g  directory  jurgensville
+	
+  2. run the program
+
+    > ruby bin\jv.rb <<file with path>> item1 item2
+	
+	Example
+	 > ruby  bin\jv.rb  example_data/jv4.csv i1 i4
+
+    
+  3. run testcases
+
+    >rspec spec\jv_rspec.rb
+
+ 
+==Algorithm
+
+    1. Load CSV file
+	2. Process each line CSV line
+	3. Add MenuItem or value_meals to Restaurent if it is matched with one of the orderd item
+	4. Iterate the resaturents to find the least price for give order
+	5. Sort the menu_items and value_meals by the most matched items with order and by price if number of matched items are same
+    6. Iterate through sorted list in #5 - each item is array 
+	7. Find the best price for each of the iterated item in #6
+	8  Recursion to find best price for reminaing order for eg ( order -  (most_matched_items in arracy of #6 interscection order ) )
+	9. find the prices for all combinations of #5
+	10. find min price of all combinations
+    	
